@@ -1,12 +1,3 @@
-// body{
-//   font-family: "Helvetica";
-//   text-align: center;
-//   background: #f4f4f7;
-//   color: #444;
-//   margin: 0;
-//   height: 100%;
-// }
-
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Libre+Baskerville);
 
 html,body { 
@@ -25,9 +16,49 @@ h6 {
   font-family: 'Josefin Sans', sans-serif;
 }
 #header {
+  $headerHeight : 70vh;
   text-align: center;
   // height: 100%;
   min-height: 18em;
+  .parallaxParent {
+    height: $headerHeight;
+    overflow: hidden;
+  }
+  .parallaxParent > .image {
+    height: 200%;
+    position: relative;
+    top: -100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+  }
+
+  .overlay {
+    position: absolute;
+    top: $headerHeight / 3;
+    width: 100%;
+  }
+
+  #scrolldown {
+    animation-name: stylie-keyframes;
+    animation-duration: 2000ms;
+    animation-delay: 0ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transform-origin: 0 0;
+  }
+
+  @keyframes stylie-keyframes {
+     0% {
+      transform:  translate(0px,0px)  ;
+    }
+    50% {
+      transform:  translate(0px,10px)  ;
+    }
+    100% {
+      transform:  translate(0px,0px)  ;
+    }
+  }
 }
 
 .pahlawan {
