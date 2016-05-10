@@ -1,0 +1,40 @@
+// body{
+//   font-family: "Helvetica";
+//   text-align: center;
+//   background: #f4f4f7;
+//   color: #444;
+//   margin: 0;
+//   height: 100%;
+// }
+
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Libre+Baskerville);
+
+html,body { 
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-size: 16pt;
+  font-family: 'Libre Baskerville', serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+#header {
+  text-align: center;
+  // height: 100%;
+  min-height: 18em;
+}
+
+.pahlawan {
+  height: 50em;
+  .container {
+    height: 100%;
+    min-height: 100%;
+    background-color: #F9F9F9;
+  }
+}
