@@ -18,15 +18,58 @@ var header = new ScrollMagic.Scene({
 
     var popKuis = $(".pop-kuis");
 
+// Antasari
 var identitas = new ScrollMagic.Scene({
         triggerElement: ".scene-identitas",
         triggerHook: 0,
         duration: 5000
     }).setTween((new TimelineMax())
         // .set(".scene-identitas *", {autoAlpha:0})
-        .fromTo(".lahir .tanggal", 10, {top: 500, left: centerPosition(".lahir .tanggal"), autoAlpha: 0,  position: "absolute"  }, {autoAlpha:1, top: centerPositionH(".lahir .tanggal")})
-        .fromTo(".lahir .tempat", 10, {top:0, left: 800, autoAlpha: 0,  position: "absolute"}, {autoAlpha:1})
-        .fromTo(".scene-identitas", 100, {left: 0,  position: "absolute"}, {left: -window.innerWidth * 2})
+        .fromTo(".lahir .tanggal", 10, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(".lahir .tanggal"), 
+            autoAlpha: 0,  position: "absolute" 
+        }, {
+            scale: 5,
+            autoAlpha:1, 
+            top: centerPositionH(".lahir .tanggal"),
+            ease : Power3.easeOut
+        })
+        .to(".lahir .tanggal", 10, {
+            autoAlpha:0, 
+            ease : Power4.easeOut
+        }, '+=3')
+        .fromTo(".lahir .narasi", 10, {
+            top: centerPositionH(".lahir .narasi"),
+            left: centerPosition(".lahir .narasi") - 200, 
+            autoAlpha: 0,
+            position: "absolute" 
+        }, {
+            autoAlpha:1, 
+            left: centerPosition(".lahir .narasi"), 
+            ease : Power3.easeOut
+        })
+        .to(".lahir .narasi", 10, {
+            left: centerPosition(".lahir .narasi") + 200, 
+            autoAlpha: 0,
+            ease : Power4.easeIn
+        })
+        .fromTo(".lahir .tempat", 10, {
+            top:0, 
+            left: 800, 
+            autoAlpha: 0, 
+            position: "absolute"
+        }, {
+            autoAlpha:1
+        })
+        .fromTo(".scene-identitas", 10, {
+            left: 0, 
+            position: "absolute"
+        }, {
+            left: -window.innerWidth * 2,
+            ease: Expo.easeIn
+        })
     )
     .setPin(".scene-identitas")
     .addIndicators()
