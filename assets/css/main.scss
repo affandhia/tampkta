@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Libre+Baskerville);
 
-$backgroundColor : F9F9F9;
+$backgroundColor : #F9F9F9;
 $headerHeight : 70vh;
 $popKuisW : 60%;
 
@@ -67,7 +67,8 @@ h6 {
 
 .pahlawan {
   
-  height: 100em;
+  // height: 100em;
+    overflow-x: hidden;
   .container {
     height: 100%;
     min-height: 100%;
@@ -76,11 +77,10 @@ h6 {
 
   .pop-kuis {
     z-index: 9;
-    position: absolute;
+    position: fixed;
+    top: 100px;
     opacity: 0;
     padding: 0;
-    border: 2px solid red;
-    border-radius: .5em;
     width: $popKuisW;
     background-color: $backgroundColor;
     text-align: center;
@@ -89,15 +89,23 @@ h6 {
       background-color: $backgroundColor;;
       margin: 0;
     }
-    .card {
-      .item {
-        display: inline-block;
-        margin: .5em 1em;
-        border: 2px solid gray;
-        border-radius: .2em;
-        width: $popKuisW / 4;
-        height: $popKuisW / 3;
-      }
+  }
+
+  .map {
+    position: fixed;
+    top: 100px;
+  }
+}
+
+section {
+  width: 100%;
+}
+
+.scene-identitas {
+  width: 100%;
+  .lahir {
+      text-align: center;
+    .tanggal {
     }
   }
 }
