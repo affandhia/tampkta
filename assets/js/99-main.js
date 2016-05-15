@@ -25,6 +25,15 @@ var identitas = new ScrollMagic.Scene({
         duration: 5000
     }).setTween((new TimelineMax())
         // .set(".scene-identitas *", {autoAlpha:0})
+        .to(".scene-identitas", 5, {
+            backgroundColor: "#E21300"
+        })
+        // .set(".wrapped", {
+        //     top: 0,
+        //     left: 0, 
+        //     position: "fixed"
+        // })
+
         .fromTo(".lahir .tanggal", 10, {
             scale: 100, 
             top: 600, 
@@ -38,9 +47,10 @@ var identitas = new ScrollMagic.Scene({
         })
         .to(".lahir .tanggal", 10, {
             autoAlpha:0, 
-            ease : Power4.easeOut
+            ease : Power4.easeOut,
         }, '+=3')
         .fromTo(".lahir .narasi", 10, {
+            scale:1.3,
             top: centerPositionH(".lahir .narasi"),
             left: centerPosition(".lahir .narasi") - 200, 
             autoAlpha: 0,
@@ -49,21 +59,48 @@ var identitas = new ScrollMagic.Scene({
             autoAlpha:1, 
             left: centerPosition(".lahir .narasi"), 
             ease : Power3.easeOut
-        })
+        }, "-=7")
         .to(".lahir .narasi", 10, {
             left: centerPosition(".lahir .narasi") + 200, 
             autoAlpha: 0,
             ease : Power4.easeIn
         })
-        .fromTo(".lahir .tempat", 10, {
-            top:0, 
-            left: 800, 
+        .fromTo($(".lahir .map-id").eq(0), 3, {
+            top:centerPositionH(".lahir .map-id"),
+            scale:3,
+            left: 200, 
             autoAlpha: 0, 
             position: "absolute"
         }, {
-            autoAlpha:1
+            autoAlpha:1,
+            scale:0.7,
+            top: centerPositionH(".lahir .map-id") + 100
         })
-        .fromTo(".scene-identitas", 10, {
+        .fromTo($(".lahir .map-id").eq(1), 3, {
+            top:centerPositionH(".lahir .map-id"),
+            scale:3,
+            left: 200, 
+            autoAlpha: 0, 
+            position: "absolute"
+        }, {
+            autoAlpha:0.2,
+            scale:1.7,
+            left: 400,
+            top: centerPositionH(".lahir .map-id")
+        }, '-=3')
+        .fromTo(".lahir .tempat", 10, {
+            top:150,
+            zindex: 9,
+            left: 200, 
+            autoAlpha: 0, 
+            position: "absolute"
+        }, {
+            scale:2,
+            autoAlpha:1,
+            color: "#fff"
+        })
+        .fromTo(".screen-identitas", 10, {
+            top: 0,
             left: 0, 
             position: "absolute"
         }, {
@@ -75,16 +112,28 @@ var identitas = new ScrollMagic.Scene({
     .addIndicators()
     .addTo(controller);
 
-var identitas = new ScrollMagic.Scene({
+var kiprah = new ScrollMagic.Scene({
         triggerElement: ".scene-kiprah",
-        duration: 2000,
-        offset: 2000
-    })
-    // .setTween((new TimelineMax())
-//         .set(".scene-kiprah *", {autoAlpha:0})
-//     )
-//     .addIndicators()
-//     .addTo(controller);
+        triggerHook: 0,
+        offset: 0,
+        duration: 5000
+    }).setTween((new TimelineMax())
+        // .set(".scene-identitas *", {autoAlpha:0})
+        .set(".scene-kiprah", {
+            backgroundColor: "#E21300",
+            // top:0,
+            // left: 0,
+            position: "absolute"
+        })
+        // .set(".scene-kiprah", {
+        //     left: 0, 
+        // })
+    )
+    .setPin(".scene-kiprah")
+    .addIndicators()
+    .addTo(controller);
+
+
 
 // var identitas = new ScrollMagic.Scene({
 //         triggerElement: ".scene-ketahanan",
