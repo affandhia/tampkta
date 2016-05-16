@@ -83,7 +83,64 @@ var identitas = new ScrollMagic.Scene({
             scale:2,
             autoAlpha:1,
             color: "#fff"
+        }, "+=10")
+        .to(".lahir .tempat", 10, {
+            top:150,
+            zindex: 9,
+            left: 0, 
+            autoAlpha: 0
+        }, "+= 10")
+        .fromTo(".deskirpsi h2", 10, {
+            top:centerPositionH(".deskirpsi h2"),
+            zindex: 9,
+            left: centerPosition(".deskirpsi h2"), 
+            autoAlpha: 0,
+            textAlign: "center",
+            position: "absolute"
+        }, {
+            scale:2,
+            autoAlpha:1,
+            color: "#fff"
         })
+        .to(".deskirpsi h2", 10, {
+            top:150,
+            zindex: 9,
+            autoAlpha: 0
+        }, "+=10")
+        .fromTo(".deskirpsi .pengukuhan p.informasi", 10, {
+            top:150,
+            zindex: 9,
+            left: centerPosition(".deskirpsi .pengukuhan p.informasi"), 
+            autoAlpha: 0, 
+            position: "absolute"
+        }, {
+            scale:2,
+            autoAlpha:1,
+            color: "#fff"
+        })
+        .to(".deskirpsi .pengukuhan p.informasi", 10, {
+            top:150,
+            zindex: 9,
+            left: 800, 
+            autoAlpha: 0
+        })
+        .fromTo(".deskirpsi .pengukuhan p.tanggal", 10, {
+            top:300,
+            zindex: 9,
+            left: centerPosition(".deskirpsi .pengukuhan p.tanggal"), 
+            autoAlpha: 0, 
+            position: "absolute"
+        }, {
+            scale:2,
+            autoAlpha:1,
+            color: "#fff"
+        })
+        .to(".deskirpsi .pengukuhan p.tanggal", 10, {
+            top:150,
+            zindex: 9,
+            left: 800, 
+            autoAlpha: 0
+        },"+=10")
     )
     .setPin(".antasari")
     .addIndicators()
