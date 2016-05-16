@@ -99,24 +99,46 @@ h6 {
 
 section.antasari {
   width: 100%;
+  height: 100%;
   .scene-identitas {
-    .wrapped {
-      width: 100%;
-      background-color: red;
-    }
-    overflow: hidden;
+    width:100%;
     height: 100%;
-    width: 100%;
-    .lahir {
-        text-align: center;
-      .tanggal {
-      }
-    }
+    overflow: hidden;
+    perspective: 1000;
   }
 
-  .scene-kiprah {
-    overflow: hidden;
-    width: 100%;
+  // .scene-kiprah {
+  //   overflow: hidden;
+  //   width: 100%;
+  //   height: 100%;
+  // }
+}
+
+#pinContainer, #scene {
+  width: 100%; 
+  height: 100%; 
+  overflow:hidden; 
+  perspective: 1000;
+}
+.slideContainer {
+  width: 400%;
+  height: 100%;
+  .panel {
+    width : 25%;
+    // float: left;
+    display: inline-block;
     height: 100%;
+    &.blue {
+      background-color: blue;
+    }
+    &.turqoise {
+      background-color: turqoise;
+    }
+    &.green {
+      background-color: green;
+    }
+    &.bordeaux {
+      background-color: red;
+    }
   }
 }

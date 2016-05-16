@@ -8,37 +8,24 @@ var header = new ScrollMagic.Scene({triggerElement: "#parallax1"})
 	.addTo(hController);
 
 // create a scene
-var header = new ScrollMagic.Scene({
-        triggerHook: "onLeave",
-        triggerElement: "#scrolldown",
-        offset: 0,   // the scene should last for a scroll distance of 100px
-    })
-    .setPin("#scrolldown") // pins the element for the the scene's duration
-    .addTo(controller); // assign the scene to the controller
-
-    var popKuis = $(".pop-kuis");
+var he
+ $(".pop-kuis");
 
 // Antasari
 var identitas = new ScrollMagic.Scene({
-        triggerElement: ".scene-identitas",
+        triggerElement: ".antasari",
         triggerHook: 0,
-        duration: 5000
+        duration: "500%"
     }).setTween((new TimelineMax())
-        // .set(".scene-identitas *", {autoAlpha:0})
         .to(".scene-identitas", 5, {
             backgroundColor: "#E21300"
         })
-        // .set(".wrapped", {
-        //     top: 0,
-        //     left: 0, 
-        //     position: "fixed"
-        // })
-
         .fromTo(".lahir .tanggal", 10, {
             scale: 100, 
             top: 600, 
             left: centerPosition(".lahir .tanggal"), 
-            autoAlpha: 0,  position: "absolute" 
+            autoAlpha: 0,  position: "absolute",
+            textAlign:"center"
         }, {
             scale: 5,
             autoAlpha:1, 
@@ -99,41 +86,87 @@ var identitas = new ScrollMagic.Scene({
             autoAlpha:1,
             color: "#fff"
         })
-        .fromTo(".screen-identitas", 10, {
-            top: 0,
-            left: 0, 
-            position: "absolute"
-        }, {
-            left: -window.innerWidth * 2,
-            ease: Expo.easeIn
-        })
     )
-    .setPin(".scene-identitas")
+    .setPin(".antasari")
     .addIndicators()
     .addTo(controller);
 
-var kiprah = new ScrollMagic.Scene({
-        triggerElement: ".scene-kiprah",
-        triggerHook: 0,
-        offset: 0,
-        duration: 5000
-    }).setTween((new TimelineMax())
-        // .set(".scene-identitas *", {autoAlpha:0})
-        .set(".scene-kiprah", {
-            backgroundColor: "#E21300",
-            // top:0,
-            // left: 0,
-            position: "absolute"
-        })
-        // .set(".scene-kiprah", {
-        //     left: 0, 
-        // })
-    )
-    .setPin(".scene-kiprah")
-    .addIndicators()
+// var kiprah = new ScrollMagic.Scene({
+//         triggerElement: ".scene-kiprah",
+//         triggerHook: 0,
+//         offset: 0,
+//         duration: 5000
+//     }).setTween((new TimelineMax())
+//         // .set(".scene-identitas *", {autoAlpha:0})
+//         .set(".scene-kiprah", {
+//             backgroundColor: "#E21300",
+//             // top:0,
+//             // left: 0,
+//             position: "absolute"
+//         })
+//         // .set(".scene-kiprah", {
+//         //     left: 0, 
+//         // })
+//     )
+//     .setPin(".scene-kiprah")
+//     .addIndicators()
+//     .addTo(controller);
+
+var testContainer = new ScrollMagic.Controller();
+
+// define movement of panels
+var wipeAnimation = new TimelineMax()
+    // animate to second panel
+    .to("#pinContainer .slideContainer", 0.5, {z: -150})      // move back in 3D space
+    .to("#pinContainer .slideContainer", 1,   {x: "-25%"})    // move in to first panel
+    .to("#pinContainer .slideContainer", 0.5, {z: 0})             // move back to origin in 3D space
+    // animate to third panel
+    .to("#pinContainer .slideContainer", 0.5, {z: -150, delay: 1})
+    .to("#pinContainer .slideContainer", 1,   {x: "-50%"})
+    .to("#pinContainer .slideContainer", 0.5, {z: 0})
+    // animate to forth panel
+    .to("#pinContainer .slideContainer", 0.5, {z: -150, delay: 1})
+    .to("#pinContainer .slideContainer", 1,   {x: "-75%"})
+    .to("#pinContainer .slideContainer", 0.5, {z: 0});
+
+// create scene to pin and link animation
+new ScrollMagic.Scene({
+        triggerElement: "#pinContainer",
+        triggerHook: "onLeave",
+        duration: "500%"
+    })
+    .setPin("#pinContainer")
+    .setTween(wipeAnimation)
+    .addIndicators() // add indicators (requires plugin)
     .addTo(controller);
 
+var testContainer = new ScrollMagic.Controller();
 
+// define movement of panels
+var wipeAnimation = new TimelineMax()
+    // animate to second panel
+    .to("#scene .slideContainer", 0.5, {z: -150})      // move back in 3D space
+    .to("#scene .slideContainer", 1,   {x: "-25%"})    // move in to first panel
+    .to("#scene .slideContainer", 0.5, {z: 0})             // move back to origin in 3D space
+    // animate to third panel
+    .to("#scene .slideContainer", 0.5, {z: -150, delay: 1})
+    .to("#scene .slideContainer", 1,   {x: "-50%"})
+    .to("#scene .slideContainer", 0.5, {z: 0})
+    // animate to forth panel
+    .to("#scene .slideContainer", 0.5, {z: -150, delay: 1})
+    .to("#scene .slideContainer", 1,   {x: "-75%"})
+    .to("#scene .slideContainer", 0.5, {z: 0});
+
+// create scene to pin and link animation
+new ScrollMagic.Scene({
+        triggerElement: "#scene",
+        triggerHook: "onLeave",
+        duration: "500%"
+    })
+    .setPin("#scene")
+    .setTween(wipeAnimation)
+    .addIndicators() // add indicators (requires plugin)
+    .addTo(controller);
 
 // var identitas = new ScrollMagic.Scene({
 //         triggerElement: ".scene-ketahanan",
