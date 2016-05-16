@@ -48,7 +48,7 @@ var identitas = new ScrollMagic.Scene({
             autoAlpha: 0,
             ease : Power4.easeIn
         })
-        .fromTo($(".lahir .map-id").eq(0), 3, {
+        .fromTo($(".lahir .map-id").eq(0), 8, {
             top:centerPositionH(".lahir .map-id"),
             scale:3,
             left: 200, 
@@ -57,9 +57,10 @@ var identitas = new ScrollMagic.Scene({
         }, {
             autoAlpha:1,
             scale:0.7,
+            ease: Power3.easeIn,
             top: centerPositionH(".lahir .map-id") + 100
         })
-        .fromTo($(".lahir .map-id").eq(1), 3, {
+        .fromTo($(".lahir .map-id").eq(1), 8, {
             top:centerPositionH(".lahir .map-id"),
             scale:3,
             left: 200, 
@@ -68,9 +69,10 @@ var identitas = new ScrollMagic.Scene({
         }, {
             autoAlpha:0.2,
             scale:1.7,
+            ease: Power3.easeIn,
             left: 400,
             top: centerPositionH(".lahir .map-id")
-        }, '-=3')
+        }, '-=8')
         .fromTo(".lahir .tempat", 10, {
             top:150,
             zindex: 9,
@@ -110,7 +112,7 @@ var kiprah = new ScrollMagic.Scene({
         .to(".scene-kiprah .tanggal", 10, {
             autoAlpha:0, 
             ease : Power4.easeOut,
-        }, '+=3')
+        }, '+=10')
         .fromTo(".scene-kiprah .map-id1", 100, { 
             bottom: "-100%", 
             scale: 0.5,
@@ -142,15 +144,15 @@ var kiprah = new ScrollMagic.Scene({
             ease : Power2.easeOut
         }, "-=110")
         .to(".scene-kiprah .map-id1", 100, { 
-            z:450,
+            z:1000,
             ease : Power0.easeNone
         })
         .to(".scene-kiprah .map-id2", 100, { 
-            z:800,
+            z:1600,
             ease : Power0.easeNone
         }, "-=100")
         .to(".scene-kiprah .map-id3", 100, { 
-            z:1400,
+            z:2000,
             ease : Power0.easeNone
         }, "-=120")
     )
