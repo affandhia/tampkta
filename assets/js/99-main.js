@@ -11,7 +11,7 @@ var header = new ScrollMagic.Scene({triggerElement: "#parallax1"})
 var identitas = new ScrollMagic.Scene({
         triggerElement: ".antasari",
         triggerHook: 0,
-        duration: "500%"
+        duration: "800%"
     }).setTween((new TimelineMax())
         .to(".scene-identitas", 5, {
             backgroundColor: "#E21300"
@@ -31,7 +31,7 @@ var identitas = new ScrollMagic.Scene({
         .to(".lahir .tanggal", 10, {
             autoAlpha:0, 
             ease : Power4.easeOut,
-        }, '+=3')
+        }, '+=10')
         .fromTo(".lahir .narasi", 10, {
             scale:1.3,
             top: centerPositionH(".lahir .narasi"),
@@ -106,11 +106,12 @@ var identitas = new ScrollMagic.Scene({
             top:150,
             zindex: 9,
             autoAlpha: 0
-        }, "+=10")
+        }, "+=20")
         .fromTo(".deskirpsi .pengukuhan p.informasi", 10, {
             top:150,
             zindex: 9,
             left: centerPosition(".deskirpsi .pengukuhan p.informasi"), 
+            textAlign: "center",
             autoAlpha: 0, 
             position: "absolute"
         }, {
@@ -123,11 +124,12 @@ var identitas = new ScrollMagic.Scene({
             zindex: 9,
             left: 800, 
             autoAlpha: 0
-        })
+        }, "+=20")
         .fromTo(".deskirpsi .pengukuhan p.tanggal", 10, {
             top:300,
             zindex: 9,
-            left: centerPosition(".deskirpsi .pengukuhan p.tanggal"), 
+            left: centerPosition(".deskirpsi .pengukuhan p.tanggal"),
+            textAlign: "center",
             autoAlpha: 0, 
             position: "absolute"
         }, {
@@ -138,9 +140,16 @@ var identitas = new ScrollMagic.Scene({
         .to(".deskirpsi .pengukuhan p.tanggal", 10, {
             top:150,
             zindex: 9,
-            left: 800, 
             autoAlpha: 0
-        },"+=10")
+        }, "+=20")
+        .to($(".lahir .map-id").eq(0), 100, {
+            z: 1000,
+            ease: Power4.easeIn
+        }, '-=70')
+        .to($(".lahir .map-id").eq(1), 150, {
+            z: 1000,
+            ease: Power4.easeIn
+        }, '-=100')
     )
     .setPin(".antasari")
     .addIndicators()
@@ -154,7 +163,7 @@ var kiprah = new ScrollMagic.Scene({
         .set(".scene-kiprah", {
             backgroundColor: "#E21300"
         })
-        .fromTo(".scene-kiprah .tanggal", 10, {
+        .fromTo(".scene-kiprah .tanggal", 40, {
             scale: 100, 
             top: 600, 
             left: centerPosition(".scene-kiprah .tanggal"), 
@@ -166,10 +175,10 @@ var kiprah = new ScrollMagic.Scene({
             top: centerPositionH(".scene-kiprah .tanggal"),
             ease : Power3.easeOut
         })
-        .to(".scene-kiprah .tanggal", 10, {
+        .to(".scene-kiprah .tanggal", 40, {
             autoAlpha:0, 
             ease : Power4.easeOut,
-        }, '+=10')
+        }, '+=40')
         .fromTo(".scene-kiprah .map-id1", 100, { 
             bottom: "-100%", 
             scale: 0.5,
@@ -200,10 +209,22 @@ var kiprah = new ScrollMagic.Scene({
             bottom:-30,
             ease : Power2.easeOut
         }, "-=110")
+        .fromTo(".scene-kiprah .pecah", 10, {
+            top:150,
+            zindex: 9,
+            left: centerPosition(".scene-kiprah .pecah"), 
+            textAlign: "center",
+            autoAlpha: 0, 
+            position: "absolute"
+        }, {
+            scale:2,
+            autoAlpha:1,
+            color: "#fff"
+        },"-=100")
         .to(".scene-kiprah .map-id1", 100, { 
             z:1000,
             ease : Power0.easeNone
-        })
+        },"+=60")
         .to(".scene-kiprah .map-id2", 100, { 
             z:1600,
             ease : Power0.easeNone
@@ -212,31 +233,73 @@ var kiprah = new ScrollMagic.Scene({
             z:2000,
             ease : Power0.easeNone
         }, "-=120")
+        .to(".scene-kiprah .pecah", 100, {
+            zindex: 9,
+            top:0,
+            z: 1000,
+            autoAlpha: 0
+        }, "-=120")
+        .fromTo(".scene-kiprah .judul", 10, {
+            top:centerPositionH(".scene-kiprah .judul"),
+            left: centerPosition(".scene-kiprah .judul"), 
+            textAlign: "center",
+            z: 1000,
+            autoAlpha: 0, 
+            position: "absolute"
+        }, {
+            scale:2,
+            z: 0,
+            autoAlpha:1,
+            color: "#fff"
+        },"-=5")
+        .to(".scene-kiprah .judul", 80, {
+            z: 1000,
+            autoAlpha: 0
+        }, "+=50")
+        .fromTo(".scene-kiprah .deskripsi", 80, {
+            scale:1.3,
+            top: centerPositionH(".scene-kiprah .deskripsi"),
+            left: centerPosition(".scene-kiprah .deskripsi") - 200, 
+            autoAlpha: 0,
+            textAlign: "center",
+            position: "absolute" 
+        }, {
+            autoAlpha:1, 
+            left: centerPosition(".scene-kiprah .deskripsi"), 
+            ease : Power3.easeOut
+        }, "-=7")
+        .to(".scene-kiprah .deskripsi", 80, {
+            left: centerPosition(".scene-kiprah .deskripsi") + 200, 
+            autoAlpha: 0,
+            ease : Power4.easeIn
+        }, "+=50")
     )
     .setPin(".antasari-1")
     .addIndicators()
     .addTo(controller);
 
-// var kiprah = new ScrollMagic.Scene({
-//         triggerElement: ".scene-kiprah",
-//         triggerHook: 0,
-//         offset: 0,
-//         duration: 5000
-//     }).setTween((new TimelineMax())
-//         // .set(".scene-identitas *", {autoAlpha:0})
-//         .set(".scene-kiprah", {
-//             backgroundColor: "#E21300",
-//             // top:0,
-//             // left: 0,
-//             position: "absolute"
-//         })
-//         // .set(".scene-kiprah", {
-//         //     left: 0, 
-//         // })
-//     )
-//     .setPin(".scene-kiprah")
-//     .addIndicators()
-//     .addTo(controller);
+var ketahanan = new ScrollMagic.Scene({
+        triggerElement: ".scene-ketahanan",
+        triggerHook: "onLeave",
+        duration: "500%"
+    }).setTween((new TimelineMax())
+
+        .to(".scene-ketahanan .slideContainer", 0.5, {z: -150})      // move back in 3D space
+        .to(".scene-ketahanan .slideContainer", 1,   {x: "-25%"})    // move in to first panel
+        .to(".scene-ketahanan .slideContainer", 0.5, {z: 0})             // move back to origin in 3D space
+        // animate to third panel
+        .to(".scene-ketahanan .slideContainer", 0.5, {z: -150, delay: 1})
+        .to(".scene-ketahanan .slideContainer", 1,   {x: "-50%"})
+        .to(".scene-ketahanan .slideContainer", 0.5, {z: 0})
+        // animate to forth panel
+        .to(".scene-ketahanan .slideContainer", 0.5, {z: -150, delay: 1})
+        .to(".scene-ketahanan .slideContainer", 1,   {x: "-75%"})
+        .to(".scene-ketahanan .slideContainer", 0.5, {z: 0})
+    )
+    .setPin(".scene-ketahanan")
+    .addIndicators()
+    .addTo(controller);
+
 
 var testContainer = new ScrollMagic.Controller();
 
