@@ -7,10 +7,6 @@ var header = new ScrollMagic.Scene({triggerElement: "#parallax1"})
 	.setTween("#parallax1 > div", {y: "80%", ease: Linear.easeNone})
 	.addTo(hController);
 
-// create a scene
-var he
- $(".pop-kuis");
-
 // Antasari
 var identitas = new ScrollMagic.Scene({
         triggerElement: ".antasari",
@@ -88,6 +84,77 @@ var identitas = new ScrollMagic.Scene({
         })
     )
     .setPin(".antasari")
+    .addIndicators()
+    .addTo(controller);
+
+var kiprah = new ScrollMagic.Scene({
+    triggerHook : "onLeave",
+    triggerElement : ".antasari-1",
+    duration: 5000
+}).setTween((new TimelineMax())
+        .set(".scene-kiprah", {
+            backgroundColor: "#E21300"
+        })
+        .fromTo(".scene-kiprah .tanggal", 10, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(".scene-kiprah .tanggal"), 
+            autoAlpha: 0,  position: "absolute",
+            textAlign:"center"
+        }, {
+            scale: 5,
+            autoAlpha:1, 
+            top: centerPositionH(".scene-kiprah .tanggal"),
+            ease : Power3.easeOut
+        })
+        .to(".scene-kiprah .tanggal", 10, {
+            autoAlpha:0, 
+            ease : Power4.easeOut,
+        }, '+=3')
+        .fromTo(".scene-kiprah .map-id1", 100, { 
+            bottom: "-100%", 
+            scale: 0.5,
+            left: centerPosition(".scene-kiprah .map-id1"), 
+            position: "absolute",
+            textAlign:"center"
+        }, {
+            bottom:-10,
+            ease : Power1.easeOut
+        })
+        .fromTo(".scene-kiprah .map-id2", 100, { 
+            bottom: "-100%", 
+            scale: 1.4,
+            left: centerPosition(".scene-kiprah .map-id2"), 
+            position: "absolute",
+            textAlign:"center"
+        }, {
+            bottom:0,
+            ease : Power1.easeOut
+        }, "-=120")
+        .fromTo(".scene-kiprah .map-id3", 100, { 
+            bottom: "-100%",
+            scale: 2,
+            left: centerPosition(".scene-kiprah .map-id3"), 
+            position: "absolute",
+            textAlign:"center"
+        }, {
+            bottom:-30,
+            ease : Power2.easeOut
+        }, "-=110")
+        .to(".scene-kiprah .map-id1", 100, { 
+            z:450,
+            ease : Power0.easeNone
+        })
+        .to(".scene-kiprah .map-id2", 100, { 
+            z:800,
+            ease : Power0.easeNone
+        }, "-=100")
+        .to(".scene-kiprah .map-id3", 100, { 
+            z:1400,
+            ease : Power0.easeNone
+        }, "-=120")
+    )
+    .setPin(".antasari-1")
     .addIndicators()
     .addTo(controller);
 

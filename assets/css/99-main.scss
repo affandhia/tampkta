@@ -114,6 +114,23 @@ section.antasari {
   // }
 }
 
+section.antasari-1 {
+  width: 100%;
+  height: 100%;
+  .scene-kiprah {
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    perspective: 1000;
+  }
+
+  // .scene-kiprah {
+  //   overflow: hidden;
+  //   width: 100%;
+  //   height: 100%;
+  // }
+}
+
 #pinContainer, #scene {
   width: 100%; 
   height: 100%; 
