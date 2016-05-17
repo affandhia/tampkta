@@ -278,7 +278,131 @@ var kiprah = new ScrollMagic.Scene({
     .addIndicators()
     .addTo(controller);
 
+var namaScene = "#badContainer";
+var currentScene = namaScene + " ";
 var ketahanan = new ScrollMagic.Scene({
+        triggerElement: namaScene,
+        triggerHook: "onLeave",
+        duration: "500%"
+    }).setTween((new TimelineMax())
+        .fromTo(currentScene + ".blue .tanggal", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".blue .tanggal") / 4, 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 5,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".blue .tanggal"),
+            ease : Power3.easeOut
+        })
+        .fromTo(currentScene + ".blue .nama", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".blue .nama") / 4, 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".blue .nama"),
+            ease : Power3.easeOut
+        })
+        .to(currentScene + ".blue .tanggal", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.2")
+        .to(currentScene + ".blue .nama", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.4")
+        .fromTo(currentScene + ".blue .surat", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".blue .surat"), 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".blue .surat") - 100,
+            ease : Power3.easeOut
+        })
+        .to(currentScene + ".blue .surat", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "+=0.4")
+        .to(currentScene + ".slideContainer", 0.5, {z: -150, delay: 0.3})      // move back in 3D space
+        .to(currentScene + ".slideContainer", 1,   {x: "-25%"})    // move in to first panel
+        .to(currentScene + ".slideContainer", 0.5, {z: 0})             // move back to origin in 3D space
+        // animate to third panel
+
+        .fromTo(currentScene + ".turqoise .tanggal", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".turqoise .tanggal"), 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 5,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".turqoise .tanggal") - 150,
+            ease : Power3.easeOut
+        })
+        .fromTo(currentScene + ".turqoise .sk", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".turqoise .sk") / 4, 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".turqoise .sk") - 100,
+            ease : Power3.easeOut
+        })
+        .to(currentScene + ".turqoise .tanggal", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.2")
+        .to(currentScene + ".turqoise .sk", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.4")
+        .fromTo(currentScene + ".turqoise .surat", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".turqoise .surat"), 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".turqoise .surat") - 100,
+            ease : Power3.easeOut
+        })
+        .to(currentScene + ".turqoise .surat", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "+=0.4")
+        .to(currentScene + ".slideContainer", 0.5, {z: -150, delay: 1})
+        .to(currentScene + ".slideContainer", 1,   {x: "-50%"})
+        .to(currentScene + ".slideContainer", 0.5, {z: 0})
+        .to(currentScene + ".pop-kuis", 0.4, {opacity: 1, left: (window.innerWidth / 2 - $(currentScene + ".pop-kuis").width() / 2), ease: Linear.easeNone})
+        .staggerFrom(currentScene + ".card", 1, {autoAlpha:0, top:100, ease:  Linear.easeNone},0.3)
+        .add( function(){ disableScroll() })
+        .to(currentScene + ".pop-kuis", 0.4, {autoAlpha: 0, left: (window.innerWidth / 2 - $(currentScene + ".pop-kuis").width() / 2), ease: Linear.easeNone}, "+=10")
+        // animate to forth panel
+        .to(currentScene + ".slideContainer", 0.5, {z: -150, delay: 1})
+        .to(currentScene + ".slideContainer", 1,   {x: "-75%"})
+        .to(currentScene + ".slideContainer", 0.5, {z: 0})
+    )
+    .setPin(namaScene)
+    .addIndicators()
+    .addTo(controller);
+
+var badaruddin = new ScrollMagic.Scene({
         triggerElement: ".scene-ketahanan",
         triggerHook: "onLeave",
         duration: "500%"
@@ -387,8 +511,12 @@ var ketahanan = new ScrollMagic.Scene({
         .to(".scene-ketahanan .slideContainer", 0.5, {z: -150, delay: 1})
         .to(".scene-ketahanan .slideContainer", 1,   {x: "-50%"})
         .to(".scene-ketahanan .slideContainer", 0.5, {z: 0})
+        .to(".scene-ketahanan .pop-kuis", 0.4, {opacity: 1, left: (window.innerWidth / 2 - $(".scene-ketahanan .pop-kuis").width() / 2), ease: Linear.easeNone})
+        .staggerFrom(".scene-ketahanan .card", 1, {autoAlpha:0, top:100, ease:  Linear.easeNone},0.3)
+        .add( function(){ disableScroll() })
+        .to(".scene-ketahanan .pop-kuis", 0.4, {autoAlpha: 0, left: (window.innerWidth / 2 - $(".scene-ketahanan .pop-kuis").width() / 2), ease: Linear.easeNone}, "+=10")
         // animate to forth panel
-        .to(".scene-ketahanan .slideContainer", 0.5, {z: -150, delay: 1})
+        .to(".scene-ketahanan .slideContainer", 0.5, {z: -150, delay: 1}, "+=1")
         .to(".scene-ketahanan .slideContainer", 1,   {x: "-75%"})
         .to(".scene-ketahanan .slideContainer", 0.5, {z: 0})
     )
@@ -396,62 +524,185 @@ var ketahanan = new ScrollMagic.Scene({
     .addIndicators()
     .addTo(controller);
 
-
-var testContainer = new ScrollMagic.Controller();
-
-// define movement of panels
-var wipeAnimation = new TimelineMax()
-    // animate to second panel
-    .to("#pinContainer .slideContainer", 0.5, {z: -150})      // move back in 3D space
-    .to("#pinContainer .slideContainer", 1,   {x: "-25%"})    // move in to first panel
-    .to("#pinContainer .slideContainer", 0.5, {z: 0})             // move back to origin in 3D space
-    // animate to third panel
-    .to("#pinContainer .slideContainer", 0.5, {z: -150, delay: 1})
-    .to("#pinContainer .slideContainer", 1,   {x: "-50%"})
-    .to("#pinContainer .slideContainer", 0.5, {z: 0})
-    // animate to forth panel
-    .to("#pinContainer .slideContainer", 0.5, {z: -150, delay: 1})
-    .to("#pinContainer .slideContainer", 1,   {x: "-75%"})
-    .to("#pinContainer .slideContainer", 0.5, {z: 0});
-
-// create scene to pin and link animation
-new ScrollMagic.Scene({
-        triggerElement: "#pinContainer",
+var namaScene = "#scene";
+var currentScene = namaScene + " ";
+var ketahanan = new ScrollMagic.Scene({
+        triggerElement: namaScene,
         triggerHook: "onLeave",
         duration: "500%"
-    })
-    .setPin("#pinContainer")
-    .setTween(wipeAnimation)
-    .addIndicators() // add indicators (requires plugin)
+    }).setTween((new TimelineMax())
+        .fromTo(currentScene + ".blue .tanggal", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".blue .tanggal") / 4, 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 5,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".blue .tanggal"),
+            ease : Power3.easeOut
+        })
+        .fromTo(currentScene + ".blue .nama", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".blue .nama") / 4, 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".blue .nama"),
+            ease : Power3.easeOut
+        })
+        .to(currentScene + ".blue .tanggal", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.2")
+        .to(currentScene + ".blue .nama", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.4")
+        .fromTo(currentScene + ".blue .surat", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".blue .surat"), 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".blue .surat") - 100,
+            ease : Power3.easeOut
+        })
+        .to(currentScene + ".blue .surat", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "+=0.4")
+        .to(currentScene + ".slideContainer", 0.5, {z: -150, delay: 0.3})      // move back in 3D space
+        .to(currentScene + ".slideContainer", 1,   {x: "-25%"})    // move in to first panel
+        .to(currentScene + ".slideContainer", 0.5, {z: 0})             // move back to origin in 3D space
+        // animate to third panel
+
+        .fromTo(currentScene + ".turqoise .tanggal", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".turqoise .tanggal"), 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".turqoise .tanggal") - 150,
+            ease : Power3.easeOut
+        })
+        .fromTo(currentScene + ".turqoise .sk", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".turqoise .sk") / 4, 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".turqoise .sk") - 100,
+            ease : Power3.easeOut
+        })
+        .to(currentScene + ".turqoise .tanggal", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.2")
+        .to(currentScene + ".turqoise .sk", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.4")
+        .fromTo(currentScene + ".turqoise .surat", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(currentScene + ".turqoise .surat"), 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(currentScene + ".turqoise .surat") - 100,
+            ease : Power3.easeOut
+        })
+        .to(currentScene + ".turqoise .surat", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "+=0.4")
+        .to(currentScene + ".slideContainer", 0.5, {z: -150, delay: 1})
+        .to(currentScene + ".slideContainer", 1,   {x: "-50%"})
+        .to(currentScene + ".slideContainer", 0.5, {z: 0})
+        .to(currentScene + ".pop-kuis", 0.4, {opacity: 1, left: (window.innerWidth / 2 - $(currentScene + ".pop-kuis").width() / 2), ease: Linear.easeNone})
+        .staggerFrom(currentScene + ".card", 1, {autoAlpha:0, top:100, ease:  Linear.easeNone},0.3)
+        .add( function(){ disableScroll() })
+        .to(currentScene + ".pop-kuis", 0.4, {autoAlpha: 0, left: (window.innerWidth / 2 - $(currentScene + ".pop-kuis").width() / 2), ease: Linear.easeNone}, "+=10")
+        // animate to forth panel
+        .to(currentScene + ".slideContainer", 0.5, {z: -150, delay: 1})
+        .to(currentScene + ".slideContainer", 1,   {x: "-75%"})
+        .to(currentScene + ".slideContainer", 0.5, {z: 0})
+    )
+    .setPin(namaScene)
+    .addIndicators()
     .addTo(controller);
 
-var testContainer = new ScrollMagic.Controller();
+// var testContainer = new ScrollMagic.Controller();
 
 // define movement of panels
-var wipeAnimation = new TimelineMax()
-    // animate to second panel
-    .to("#scene .slideContainer", 0.5, {z: -150})      // move back in 3D space
-    .to("#scene .slideContainer", 1,   {x: "-25%"})    // move in to first panel
-    .to("#scene .slideContainer", 0.5, {z: 0})             // move back to origin in 3D space
-    // animate to third panel
-    .to("#scene .slideContainer", 0.5, {z: -150, delay: 1})
-    .to("#scene .slideContainer", 1,   {x: "-50%"})
-    .to("#scene .slideContainer", 0.5, {z: 0})
-    // animate to forth panel
-    .to("#scene .slideContainer", 0.5, {z: -150, delay: 1})
-    .to("#scene .slideContainer", 1,   {x: "-75%"})
-    .to("#scene .slideContainer", 0.5, {z: 0});
+// var wipeAnimation = new TimelineMax()
+//     // animate to second panel
+//     .to("#pinContainer .slideContainer", 0.5, {z: -150})      // move back in 3D space
+//     .to("#pinContainer .slideContainer", 1,   {x: "-25%"})    // move in to first panel
+//     .to("#pinContainer .slideContainer", 0.5, {z: 0})             // move back to origin in 3D space
+//     // animate to third panel
+//     .to("#pinContainer .slideContainer", 0.5, {z: -150, delay: 1})
+//     .to("#pinContainer .slideContainer", 1,   {x: "-50%"})
+//     .to("#pinContainer .slideContainer", 0.5, {z: 0})
+//     // animate to forth panel
+//     .to("#pinContainer .slideContainer", 0.5, {z: -150, delay: 1})
+//     .to("#pinContainer .slideContainer", 1,   {x: "-75%"})
+//     .to("#pinContainer .slideContainer", 0.5, {z: 0});
 
-// create scene to pin and link animation
-new ScrollMagic.Scene({
-        triggerElement: "#scene",
-        triggerHook: "onLeave",
-        duration: "500%"
-    })
-    .setPin("#scene")
-    .setTween(wipeAnimation)
-    .addIndicators() // add indicators (requires plugin)
-    .addTo(controller);
+// // create scene to pin and link animation
+// new ScrollMagic.Scene({
+//         triggerElement: "#pinContainer",
+//         triggerHook: "onLeave",
+//         duration: "500%"
+//     })
+//     .setPin("#pinContainer")
+//     .setTween(wipeAnimation)
+//     .addIndicators() // add indicators (requires plugin)
+//     .addTo(controller);
+
+// var testContainer = new ScrollMagic.Controller();
+
+// // define movement of panels
+// var wipeAnimation = new TimelineMax()
+//     // animate to second panel
+//     .to("#scene .slideContainer", 0.5, {z: -150})      // move back in 3D space
+//     .to("#scene .slideContainer", 1,   {x: "-25%"})    // move in to first panel
+//     .to("#scene .slideContainer", 0.5, {z: 0})             // move back to origin in 3D space
+//     // animate to third panel
+//     .to("#scene .slideContainer", 0.5, {z: -150, delay: 1})
+//     .to("#scene .slideContainer", 1,   {x: "-50%"})
+//     .to("#scene .slideContainer", 0.5, {z: 0})
+//     // animate to forth panel
+//     .to("#scene .slideContainer", 0.5, {z: -150, delay: 1})
+//     .to("#scene .slideContainer", 1,   {x: "-75%"})
+//     .to("#scene .slideContainer", 0.5, {z: 0});
+
+// // create scene to pin and link animation
+// new ScrollMagic.Scene({
+//         triggerElement: "#scene",
+//         triggerHook: "onLeave",
+//         duration: "500%"
+//     })
+//     .setPin("#scene")
+//     .setTween(wipeAnimation)
+//     .addIndicators() // add indicators (requires plugin)
+//     .addTo(controller);
 
 // var identitas = new ScrollMagic.Scene({
 //         triggerElement: ".scene-ketahanan",
@@ -515,12 +766,12 @@ function preventDefaultForScrollKeys(e) {
 }
 
 function disableScroll() {
-  if (window.addEventListener) // older FF
-      window.addEventListener('DOMMouseScroll', preventDefault, false);
-  window.onwheel = preventDefault; // modern standard
-  window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
-  window.ontouchmove  = preventDefault; // mobile
-  document.onkeydown  = preventDefaultForScrollKeys;
+  // if (window.addEventListener) // older FF
+  //     window.addEventListener('DOMMouseScroll', preventDefault, false);
+  // window.onwheel = preventDefault; // modern standard
+  // window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+  // window.ontouchmove  = preventDefault; // mobile
+  // document.onkeydown  = preventDefaultForScrollKeys;
 }
 
 function enableScroll() {
