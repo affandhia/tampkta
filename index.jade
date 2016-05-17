@@ -1,4 +1,22 @@
 section#header
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js")
+
+	script.
+		$(function() {
+		  $('a[href*="#"]:not([href="#"])').click(function() {
+		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		      var target = $(this.hash);
+		      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		      if (target.length) {
+		        $('html, body').animate({
+		          scrollTop: target.offset().top
+		        }, 1000);
+		        return false;
+		      }
+		    }
+		  });
+		});
+
 	div(id="parallax1", class="parallaxParent")
 		.image(style="background-image: url(assets/img/hero.jpg;")
 	.overlay
@@ -26,7 +44,7 @@ section#header
 						h4.card-title Card title
 						p.card-text
 							| This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
-section.antasari
+section.antasari#slide01
 	.scene-identitas
 		.lahir
 			p.tanggal.col-xs-12 1809
@@ -69,18 +87,21 @@ section.antasari-1
 				h1.title Siapa pahlawan yang dimaksud ini?
 				.card-group
 					.card
-						img.card-img(src="/assets/img/soekarno.jpg")
-						.card-img-overlay
-							p.card-text https://en.wikipedia.org/wiki/Sukarno
+						a(href="#slide01")
+							img.card-img(src="/assets/img/soekarno.jpg")
+							.card-img-overlay
+								p.card-text https://en.wikipedia.org/wiki/Sukarno
 					.card
-						img.card-img(src="/assets/img/antasari.jpg")
-						.card-img-overlay
-							p.card-text https://liaanda.wordpress.com/2014/12/06/biografi-pangeran-antasari/
+						a(href="#outroslide01")
+							img.card-img(src="/assets/img/antasari.jpg")
+							.card-img-overlay
+								p.card-text https://liaanda.wordpress.com/2014/12/06/biografi-pangeran-antasari/
 					.card
-						img.card-img(src="/assets/img/kihajar.jpg")
-						.card-img-overlay
-							p.card-text http://fajar-kacamata.blogspot.co.id/2012/10/ki-hajar-dewantara-dan-pemikirannya.html
-		section.panel.bordeaux1
+						a(href="#slide01")
+							img.card-img(src="/assets/img/kihajar.jpg")
+							.card-img-overlay
+								p.card-text http://fajar-kacamata.blogspot.co.id/2012/10/ki-hajar-dewantara-dan-pemikirannya.html
+		section.panel.bordeaux1#outroslide01
 			p nama dan gambar beliau diabadikan dalam uang kertas nominal Rp. 2000
 			img(src="/assets/img/duitantasari.jpg" style="position: relative; left: 50%")
 //- 	img(src="#")
@@ -100,7 +121,7 @@ section.antasari-1
 //- 	img(src="#")
 
 #pinContainer
-	.slideContainer
+	.slideContainer#slide02
 		section.panel.blue
 			.text1 Lahir di Palembang, tahun 1767
 			.text2 Menjadi pemimpin kesultanan Palembang-Darussalam selama dua periode (1803-1813, 1818-1821)
@@ -114,22 +135,25 @@ section.antasari-1
 				h1.title Siapa pahlawan yang dimaksud ini?
 				.card-group
 					.card
-						img.card-img(src="/assets/img/badaruddin.jpg")
-						.card-img-overlay
-							p.card-text http://www.tokohindonesia.com/biografi/article/295-pahlawan/951-pahlawan-gigih-dari-palembang
+						a(href="#outroslide02")
+							img.card-img(src="/assets/img/badaruddin.jpg")
+							.card-img-overlay
+								p.card-text http://www.tokohindonesia.com/biografi/article/295-pahlawan/951-pahlawan-gigih-dari-palembang
 					.card
-						img.card-img(src="/assets/img/agengtirtayasa.jpg")
-						.card-img-overlay
-							p.card-text https://edita80.wordpress.com/2012/09/23/pahlawan-nasional/
+						a(href="#slide02")
+							img.card-img(src="/assets/img/agengtirtayasa.jpg")
+							.card-img-overlay
+								p.card-text https://edita80.wordpress.com/2012/09/23/pahlawan-nasional/
 					.card
-						img.card-img(src="/assets/img/juanda.jpg")
-						.card-img-overlay
-							p.card-text http://hilmanzuhdie.blogspot.co.id/2013_03_01_archive.html
-		section.panel.bordeaux2
+						a(href="#slide02")
+							img.card-img(src="/assets/img/juanda.jpg")
+							.card-img-overlay
+								p.card-text http://hilmanzuhdie.blogspot.co.id/2013_03_01_archive.html
+		section.panel.bordeaux2#outroslide02
 			p nama dan gambar beliau diabadikan dalam uang kertas nominal Rp. 10000
 			img(src="/assets/img/duitbadaruddin.jpg" style="position: relative; left: 45%; height: 50%")
 #scene
-	.slideContainer
+	.slideContainer#slide03
 		section.panel.blue
 			.text1 Lahir pada 31 Maret 1897 di Bojongsoang, Kabupaten Bandung
 			.text2 Pernah menjabat sebagai Wakil Ketua Budi Utomo cabang Bandung periode 1921 - 1924
@@ -144,17 +168,20 @@ section.antasari-1
 				h1.title Siapa pahlawan yang dimaksud ini?
 				.card-group
 					.card
-						img.card-img(src="/assets/img/hasanuddin.jpg")
-						.card-img-overlay
-							p.card-text https://anakaseliindonesia.wordpress.com/2012/10/25/pahlawan-pahlawan-perjuangan-kemerdekaan-indonesia/hasannudin_1/
+						a(href="#slide03")
+							img.card-img(src="/assets/img/hasanuddin.jpg")
+							.card-img-overlay
+								p.card-text https://anakaseliindonesia.wordpress.com/2012/10/25/pahlawan-pahlawan-perjuangan-kemerdekaan-indonesia/hasannudin_1/
 					.card
-						img.card-img(src="/assets/img/kihajar.jpg")
-						.card-img-overlay
-							p.card-text http://fajar-kacamata.blogspot.co.id/2012/10/ki-hajar-dewantara-dan-pemikirannya.html
+						a(href="#slide03")
+							img.card-img(src="/assets/img/kihajar.jpg")
+							.card-img-overlay
+								p.card-text http://fajar-kacamata.blogspot.co.id/2012/10/ki-hajar-dewantara-dan-pemikirannya.html
 					.card
-						img.card-img(src="/assets/img/oto.jpg")
-						.card-img-overlay
+						a(href="#outroslide03")
+							img.card-img(src="/assets/img/oto.jpg")
+							.card-img-overlay
 							p.card-text http://kebudayaanindonesia.net/sosok/52/R.+Otto+Iskandar+Dinata
-		section.panel.bordeaux3
+		section.panel.bordeaux3#outroslide03
 			p nama dan gambar beliau diabadikan dalam uang kertas nominal Rp. 20000
 			img(src="/assets/img/duitoto.jpg" style="position: relative; left: 45%; height:50%;")
