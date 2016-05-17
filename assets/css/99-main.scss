@@ -143,8 +143,15 @@ section.antasari-1 {
   .panel {
     width : 25%;
     float: left;
+    background-image: url('/assets/img/hero.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
     // display: inline-block;
     height: 100%;
+    * {
+      text-align: center;
+    }
+
     &.blue {
       background-color: blue;
     }

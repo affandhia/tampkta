@@ -239,7 +239,7 @@ var kiprah = new ScrollMagic.Scene({
             z: 1000,
             autoAlpha: 0
         }, "-=120")
-        .fromTo(".scene-kiprah .judul", 10, {
+        .fromTo(".scene-kiprah .judul", 80, {
             top:centerPositionH(".scene-kiprah .judul"),
             left: centerPosition(".scene-kiprah .judul"), 
             textAlign: "center",
@@ -283,7 +283,30 @@ var ketahanan = new ScrollMagic.Scene({
         triggerHook: "onLeave",
         duration: "500%"
     }).setTween((new TimelineMax())
-
+        .fromTo(".scene-ketahanan .blue .tanggal", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(".scene-ketahanan .blue .tanggal") / 4, 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 5,
+            autoAlpha:1, 
+            top: centerPositionH(".scene-ketahanan .blue .tanggal"),
+            ease : Power3.easeOut
+        })
+        .fromTo(".scene-ketahanan .blue .nama", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(".scene-ketahanan .blue .nama") / 4, 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(".scene-ketahanan .blue .nama"),
+            ease : Power3.easeOut
+        })
         .to(".scene-ketahanan .slideContainer", 0.5, {z: -150})      // move back in 3D space
         .to(".scene-ketahanan .slideContainer", 1,   {x: "-25%"})    // move in to first panel
         .to(".scene-ketahanan .slideContainer", 0.5, {z: 0})             // move back to origin in 3D space
