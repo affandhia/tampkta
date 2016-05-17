@@ -10,6 +10,7 @@ html,body {
   padding: 0px;
   font-size: 16pt;
   font-family: 'Libre Baskerville', serif;
+  background-image: url('/assets/img/background.jpg');
 }
 h1,
 h2,
@@ -173,7 +174,27 @@ section.antasari-1 {
 
 .pop-kuis {
   .card {
+    position: relative;
     height: 15em;
+    overflow: hidden;
+    padding: 0 1em;
+    border: none;
+    background-image: url('/assets/img/background.jpg');
+    img {
+      text-align: center;
+      height:100%;
+
+      // centerize
+      position: absolute;
+      top: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      right: -9999px;
+      margin: auto;
+    }
+    p.card-text {
+      visibility: hidden;
+    }
   }
   .title {
 
