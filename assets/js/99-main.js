@@ -307,10 +307,83 @@ var ketahanan = new ScrollMagic.Scene({
             top: centerPositionH(".scene-ketahanan .blue .nama"),
             ease : Power3.easeOut
         })
-        .to(".scene-ketahanan .slideContainer", 0.5, {z: -150})      // move back in 3D space
+        .to(".scene-ketahanan .blue .tanggal", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.2")
+        .to(".scene-ketahanan .blue .nama", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.4")
+        .fromTo(".scene-ketahanan .blue .surat", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(".scene-ketahanan .blue .surat"), 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(".scene-ketahanan .blue .surat") - 100,
+            ease : Power3.easeOut
+        })
+        .to(".scene-ketahanan .blue .surat", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "+=0.4")
+        .to(".scene-ketahanan .slideContainer", 0.5, {z: -150, delay: 0.3})      // move back in 3D space
         .to(".scene-ketahanan .slideContainer", 1,   {x: "-25%"})    // move in to first panel
         .to(".scene-ketahanan .slideContainer", 0.5, {z: 0})             // move back to origin in 3D space
         // animate to third panel
+
+        .fromTo(".scene-ketahanan .turqoise .tanggal", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(".scene-ketahanan .turqoise .tanggal"), 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 5,
+            autoAlpha:1, 
+            top: centerPositionH(".scene-ketahanan .turqoise .tanggal") - 150,
+            ease : Power3.easeOut
+        })
+        .fromTo(".scene-ketahanan .turqoise .sk", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(".scene-ketahanan .turqoise .sk") / 4, 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(".scene-ketahanan .turqoise .sk") - 100,
+            ease : Power3.easeOut
+        })
+        .to(".scene-ketahanan .turqoise .tanggal", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.2")
+        .to(".scene-ketahanan .turqoise .sk", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "-=0.4")
+        .fromTo(".scene-ketahanan .turqoise .surat", 1, {
+            scale: 100, 
+            top: 600, 
+            left: centerPosition(".scene-ketahanan .turqoise .surat"), 
+            autoAlpha: 0,
+            position: "relative"
+        }, {
+            scale: 2,
+            autoAlpha:1, 
+            top: centerPositionH(".scene-ketahanan .turqoise .surat") - 100,
+            ease : Power3.easeOut
+        })
+        .to(".scene-ketahanan .turqoise .surat", 1, {
+            autoAlpha:0,
+            ease : Power0.easeNone
+        }, "+=0.4")
         .to(".scene-ketahanan .slideContainer", 0.5, {z: -150, delay: 1})
         .to(".scene-ketahanan .slideContainer", 1,   {x: "-50%"})
         .to(".scene-ketahanan .slideContainer", 0.5, {z: 0})

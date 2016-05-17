@@ -75,22 +75,6 @@ h6 {
     background-color: $backgroundColor;
   }
 
-  .pop-kuis {
-    z-index: 9;
-    position: fixed;
-    top: 100px;
-    opacity: 0;
-    padding: 0;
-    width: $popKuisW;
-    background-color: $backgroundColor;
-    text-align: center;
-    .title {
-      padding: 0em;
-      background-color: $backgroundColor;;
-      margin: 0;
-    }
-  }
-
   .map {
     position: fixed;
     top: 100px;
@@ -164,5 +148,14 @@ section.antasari-1 {
     &.bordeaux {
       background-color: red;
     }
+  }
+}
+
+.pop-kuis {
+  .card {
+    height: 15em;
+  }
+  .title {
+
   }
 }
