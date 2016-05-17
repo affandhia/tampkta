@@ -1,4 +1,5 @@
-// @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Libre+Baskerville);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Libre+Baskerville);
+@import url(https://fonts.googleapis.com/css?family=Rokkitt:400,700);
 
 $backgroundColor : #F9F9F9;
 $headerHeight : 100vh;
@@ -9,8 +10,10 @@ html,body {
   margin: 0px;
   padding: 0px;
   font-size: 16pt;
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Rokkitt', serif;
   background-image: url('/assets/img/background.jpg');
+  // background-repeat: ;
+  // background-size: contain;
 }
 h1,
 h2,
