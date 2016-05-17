@@ -143,7 +143,6 @@ section.antasari-1 {
   .panel {
     width : 25%;
     float: left;
-    background-image: url('/assets/img/hero.jpg');
     background-repeat: no-repeat;
     background-size: 100% auto;
     // display: inline-block;
@@ -152,14 +151,21 @@ section.antasari-1 {
       text-align: center;
     }
 
+    background-image: url('/assets/img/background.jpg');
     &.blue {
-      background-color: blue;
+      background-image: url('/assets/img/Background with badaruddin.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
     }
     &.turqoise {
-      background-color: turqoise;
+      background-image: url('/assets/img/Background with Oto Iskandar di Nata.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
     }
     &.green {
-      background-color: green;
+      background-image: url('/assets/img/Background with Antasari.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
     }
     &.bordeaux {
       background-color: red;
