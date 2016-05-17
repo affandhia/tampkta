@@ -9,6 +9,8 @@ html,body {
   margin: 0px;
   padding: 0px;
   font-size: 16pt;
+  background-repeat: repeat-y;
+  background-size: 100% 100%;
   font-family: 'Libre Baskerville', serif;
   background-image: url('/assets/img/background.jpg');
 }
@@ -129,7 +131,7 @@ section.antasari-1 {
     width : 25%;
     float: left;
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: auto 100%;
     // display: inline-block;
     height: 100%;
     * {
